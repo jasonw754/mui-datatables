@@ -27,9 +27,7 @@ const defaultTableStyles = {
   },
   responsiveScroll: {
     overflowX: 'auto',
-    overflow: 'auto',
     height: '100%',
-    maxHeight: '499px',
   },
   caption: {
     position: 'absolute',
