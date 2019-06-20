@@ -6,7 +6,39 @@ class Example extends React.Component {
 
   render() {
 
-    const columns = ["Name", "Title", "Location", "Test 1", "Test 2", "Test 3", "Test 4", "Test 5", "Test 6", "Test 7", "Test 8", "Test 9", "Test 10", "Test 11", "Test 12", "Test 13", "Really Long Name", "Kind of long", "Need to scroll for this"];
+    const columns = [
+      "Name", 
+      "Title", 
+      "Location", 
+      {
+        name: "Test 1",
+        group: "Group A"
+      },
+      {
+        name: "Test 2",
+        group: "Group A"
+      },
+      {
+        name: "Test 3",
+        group: "Group A"
+      },
+      {
+        name: "Test 4",
+        group: "Group B"
+      },      
+      {
+        name: "Test 5",
+        group: "Group B"
+      },
+      {
+        name: "Test 6",
+        group: "Group B"
+      },
+      {
+        name: "Test 7",
+        group: "Group B"
+      }
+    ];
 
     const data = [
       ["Gabby George", "Business Analyst", "Minneapolis"],

@@ -2,6 +2,7 @@ import React from 'react';
 import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 import MuiTableHead from '@material-ui/core/TableHead';
+import MuiTableCell from '@material-ui/core/TableCell';
 import TableHeadRow from './TableHeadRow';
 import TableHeadCell from './TableHeadCell';
 import TableSelectCell from './TableSelectCell';
@@ -39,6 +40,21 @@ class TableHead extends React.Component {
     return (
       <MuiTableHead
         className={classNames({ [classes.responsiveStacked]: options.responsive === 'stacked', [classes.main]: true })}>
+        <TableHeadRow>
+          <MuiTableCell />
+          {columns.reduce((groups, column, i, columns) => {
+            if (!column.display) return groups;
+            const group = groups.find(x => x.group == column.group);
+            if (group) {
+              group.colspan++;
+            } else {
+              groups.push({ group: column.group, colspan: 1 });
+            }
+            return groups;
+          }, []).map(grouping => {
+            return (<MuiTableCell key={grouping.group} colSpan={grouping.colspan}>{grouping.group}</MuiTableCell>);
+          })}
+        </TableHeadRow>
         <TableHeadRow>
           <TableSelectCell
             ref={el => setCellRef(0, findDOMNode(el))}
