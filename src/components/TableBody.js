@@ -164,6 +164,7 @@ class TableBody extends React.Component {
                   rowSelected={options.selectableRows !== 'none' ? this.isRowSelected(dataIndex) : false}
                   onClick={this.handleRowClick.bind(null, row, { rowIndex, dataIndex })}
                   id={'MUIDataTableBodyRow-' + dataIndex}>
+                  {options.rowSelection &&
                   <TableSelectCell
                     onChange={this.handleRowSelect.bind(null, {
                       index: this.getRowIndex(rowIndex),
@@ -180,7 +181,7 @@ class TableBody extends React.Component {
                     isRowExpanded={this.isRowExpanded(dataIndex)}
                     isRowSelectable={this.isRowSelectable(dataIndex)}
                     id={'MUIDataTableSelectCell-' + dataIndex}
-                  />
+                  />}
                   {row.map(
                     (column, columnIndex) =>
                       columns[columnIndex].display === 'true' && (

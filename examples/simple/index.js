@@ -61,6 +61,7 @@ class Example extends React.Component {
       filter: true,
       filterType: 'dropdown',
       responsive: 'scroll',
+      rowSelection: false
     };
 
     return (
