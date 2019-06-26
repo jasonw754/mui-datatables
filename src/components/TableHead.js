@@ -41,7 +41,7 @@ class TableHead extends React.Component {
       <MuiTableHead
         className={classNames({ [classes.responsiveStacked]: options.responsive === 'stacked', [classes.main]: true })}>
         <TableHeadRow>
-          <MuiTableCell />
+          {options.rowSelection && <MuiTableCell />}
           {columns.reduce((groups, column, i, columns) => {
             if (!column.display) return groups;
             const group = groups.find(x => x.group == column.group);
